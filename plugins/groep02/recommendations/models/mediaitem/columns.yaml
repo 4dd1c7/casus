@@ -1,0 +1,22 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: 'ID'
+        searchable: true
+    title:
+        label: 'Title'
+        searchable: true
+    type:
+        label: 'Media Type'
+        searchable: true
+    genre:
+        label: 'Genre'
+        searchable: true
+    tags:
+        label: 'Tags'
+        searchable: true
+    created_at:
+        label: 'Created At'

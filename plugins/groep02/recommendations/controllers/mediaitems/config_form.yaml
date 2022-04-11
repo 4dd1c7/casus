@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Media Item
+
+# Model Form Field configuration
+form: $/groep02/recommendations/models/mediaitem/fields.yaml
+
+# Model Class name
+modelClass: Groep02\Recommendations\Models\MediaItem
+
+# Default redirect location
+defaultRedirect: groep02/recommendations/mediaitems
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: groep02/recommendations/mediaitems/update/:id
+    redirectClose: groep02/recommendations/mediaitems
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: groep02/recommendations/mediaitems
+    redirectClose: groep02/recommendations/mediaitems
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

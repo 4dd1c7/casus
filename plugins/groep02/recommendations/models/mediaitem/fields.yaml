@@ -1,0 +1,64 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        label: 'Title'
+        type: text
+        size: small
+    description:
+        label: 'Description'
+        type: textarea
+        size: large
+    type:
+        label: 'Media Type'
+        type: checkboxlist
+        options:
+            game: Game
+            movie: Movie
+            series: Serie
+            book: Book
+    genre:
+        label: 'Genre(s)'
+        commentAbove: 'Separate multiple genres using a comma: horror,thriller,si-fi'
+        type: taglist
+        separator: comma
+        options:
+            action: action
+            comedy: comedy
+            drama: drama
+            fantasy: fantasy
+            horror: horror
+            mystery: mystery
+            romance: romance
+            thriller: thriller
+            western: western
+    cover_image:
+        label: 'Cover image (png)'
+        mode: image
+        useCaption: true
+        imageHeight: 300
+        thumbOptions:
+            mode: crop
+            extension: png
+        size: tiny
+        type: fileupload
+    tags:
+        label: 'Tag(s)'
+        commentAbove: 'Separate multiple tags using a space: new,bingewatch,free'
+        type: taglist
+        separator: comma
+        options:
+            foreign: foreign
+            written-directed: written-directed
+            enjoyable: enjoyable
+            brilliant: brilliant
+            emotional: emotional
+            well-acted: well-acted
+            insightful: insightful
+            beautiful: beautiful
+            dramatic: dramatic
+            powerful: powerful
+            family: family
+            mysterious: mysterious

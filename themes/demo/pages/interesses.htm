@@ -1,0 +1,17 @@
+title = "Interesses"
+url = "/interesses"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+redirect = "login"
+
+[InterestsForm]
+==
+{% component 'session' %}
+
+<div class="container">
+    <h1>Mijn interesses</h1>
+    {% component 'InterestsForm' %}
+</div>

@@ -1,0 +1,10 @@
+1.0.1: First version of Recommendations
+1.0.2:
+    - 'Added columns to media_items_table'
+    - added_columns_media_items_table.php
+1.0.3:
+    - 'Create table user_recommendations_table'
+    - create_user_recommendations_table.php
+1.0.4:
+    - 'create table user_interests'
+    - create_interests_table.php

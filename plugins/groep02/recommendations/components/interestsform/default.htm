@@ -1,0 +1,26 @@
+{{ form_ajax('onSubmitForm') }}
+<div class="mb-3">
+    <label for="media_types" class="form-label">Interessante media types</label>
+    <input type="text" class="form-control" id="media_types" name="media_types" placeholder="Media types" value="{{ userInterests.type|join(',') }}" aria-describedby="type-help">
+    <div id="type-help" class="form-text">Houdt meerdere interesses gescheiden met een comma</div>
+</div>
+<div class="mb-3">
+    <label for="media_genres" class="form-label">Interessante genres</label>
+    <input type="text" class="form-control" id="media_genres" name="media_genres" placeholder="Media genres" value="{{ userInterests.genre|join(',') }}" aria-describedby="genre-help">
+    <div id="genre-help" class="form-text">Houdt meerdere interesses gescheiden met een comma</div>
+</div>
+<div class="mb-3">
+    <label for="media_tags" class="form-label">Interessante tags</label>
+    <input type="text" class="form-control" id="media_tags" name="media_tags" placeholder="Media tags" value="{{ userInterests.tags|join(',') }}" aria-describedby="tags-help">
+    <div id="tags-help" class="form-text">Houdt meerdere interesses gescheiden met een comma</div>
+</div>
+
+<button type="submit" data-attach-loading class="btn btn-success">Opslaan</button>
+
+{% flash %}
+<p data-control="flash-message" class="flash-message fade {{ type }}" data-interval="8">
+    {{ message }}
+</p>
+{% endflash %}
+
+{{ form_close() }}

@@ -1,0 +1,77 @@
+<!--{% if recommendations|length > 0 %}-->
+
+<!--{#{{ dump(recommendations) }}#}-->
+
+<!--{% for recommendation in recommendations %}-->
+<!--<div class="card">-->
+<!--    <img class="card-img-top cover-image" src="{{ recommendation.cover_image.path }}" alt="{{ recommendation.title }}">-->
+<!--    <div class="card-body">-->
+<!--        <h5 class="card-title">{{ recommendation.title }}</h5>-->
+<!--        &lt;!&ndash;                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>&ndash;&gt;-->
+<!--        <p class="card-text">{{ recommendation.description }}.</p>-->
+<!--        <a href="/recommendation/{{ recommendation.id }}" class="btn btn-primary">Details</a>-->
+<!--    </div>-->
+<!--</div>-->
+<!--{% endfor %}-->
+<!--{% else %}-->
+<!--<p>Helaas, er zijn geen aanbevelingen gevonden... <br>-->
+<!--    Tip: probeer je <a href="{{ 'interesses'|page }}">interesses</a> aan te passen.</p>-->
+<!--{% endif %}-->
+
+<div class="row">
+{#{{ dump(recommendations) }}#}
+{% if recommendations|length > 0 %}
+    {% for recommendation in recommendations %}
+        <div class="col-md-4">
+            <div class="card text-white card-has-bg click-col"
+                 onclick="location.href='/aanbevelingen/aanbeveling/{{ recommendation.id }}'"
+                 style="background-image:url('{{ recommendation.cover_image.thumb(auto, auto) }}');">
+                <!--<img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">-->
+                <img class="card-img d-none" src="{{ recommendation.cover_image.path }}" alt="{{ recommendation.title }}">
+                <div class="card-img-overlay d-flex flex-column">
+                    <div class="card-body">
+                        <small class="card-meta mb-2">
+                            {% for type in recommendation.type %}
+                                {{ type }}
+                            {% endfor %}
+                        </small>
+                        <h4 class="card-title mt-0 text-white">
+                            {{ recommendation.title }}
+                        </h4>
+                        <p>{{ recommendation.description|length > 120 ? recommendation.description|slice(0, 120) ~ '...' : recommendation.description }}</p><br>
+                        <p><i class=""></i><small> Genre(s)</small><br>
+                            {% for genre in recommendation.genre|split(',') %}
+                                {{ genre }}
+                            {% endfor %}
+                        </p>
+                        <p><i class="fa-solid fa-tags"></i><small> Tag(s)</small><br>
+                            {% for tag in recommendation.tags|split(',') %}
+                                {{ tag }}
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="media">
+<!--                            <img class="mr-3 rounded-circle"-->
+<!--                                 src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png"-->
+<!--                                 alt="Generic placeholder image" style="max-width:50px">-->
+                            <div class="media-body">
+                                <h6 class="my-0 text-white d-block">Netflix</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p>Niet gevonden wat je zocht? probeer je <a href="{{ 'interesses'|page }}">interesses</a> aan te passen.</p>
+    </div>
+</div>
+{% else %}
+<p>Helaas, er zijn geen aanbevelingen gevonden...<br>
+   Tip: probeer je <a href="{{ 'interesses'|page }}">interesses</a> aan te passen.
+</p>
+{% endif %}

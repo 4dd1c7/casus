@@ -1,0 +1,17 @@
+title = "Aanbevelingen"
+url = "/aanbevelingen"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+redirect = "login"
+
+[Recommendations]
+==
+{% component 'session' %}
+
+<div class="container">
+    <h1>Aanbevelingen op basis van jouw interesses</h1>
+    {% component 'Recommendations' %}
+</div>
